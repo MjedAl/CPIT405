@@ -1,0 +1,14 @@
+
+.sort {
+ float: right;
+}
+.images{
+    text-align: center;
+    margin-top: 1%;
+}
+img {
+    width: 30%;
+}
+form {
+    text-align: center;
+}
