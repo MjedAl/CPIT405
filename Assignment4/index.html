@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Artly</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Artly</h1>
+    </div>
+    <div class="content">
+        <!-- Navbar/Options bar -->
+        <div class="bar">
+            <div class="navbar">
+                <div>
+                    <a class="active" href="./index.html">
+                        Home
+                    </a>
+                </div>
+                <div>
+                    <a href="./upload.html">
+                        Upload image
+                    </a>
+                </div>
+                <div>
+                    <a href="./search.html">
+                        Search for image
+                    </a>
+                </div>
+            </div>
+            <div class="sort">
+                <span>Sort by:</span>
+                <select id="sortBySelect" onchange="sortImages()">
+                    <option selected disabled>Default</option>
+                    <option value="id">ID</option>
+                    <option value="author">Author name</option>
+                </select>
+            </div>
+        </div>
+        <!-- Images -->
+        <div id="images" class="images">
+            <!-- Will be populated from Js -->
+        </div>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
