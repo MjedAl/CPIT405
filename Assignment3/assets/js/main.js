@@ -126,6 +126,7 @@ function compare(a, b) {
 }
 
 function sortImages() {
+    document.cookie = 'sortingPreference=' + document.getElementById('sortBySelect').selectedOptions[0].value;
     images.sort(compare);
     addImages();
 }
@@ -145,3 +146,11 @@ function addImages() {
 }
 
 addImages();
+
+window.onload = function () {
+    if (document.cookie != undefined && document.cookie.indexOf('sortingPreference') != -1) {
+        document.getElementById("sortBySelect").value = document.cookie.split(';')[0].split('=')[1];
+        images.sort(compare);
+        addImages();
+    }
+}
