@@ -150,5 +150,7 @@ addImages();
 window.onload = function () {
     if (document.cookie != undefined && document.cookie.indexOf('sortingPreference') != -1) {
         document.getElementById("sortBySelect").value = document.cookie.split(';')[0].split('=')[1];
+        images.sort(compare);
+        addImages();
     }
 }
