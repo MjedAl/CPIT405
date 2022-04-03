@@ -13,7 +13,7 @@ xmlhttp.onreadystatechange = function () {
         }
     }
 };
-xmlhttp.open("GET", "https://picsum.photos/v2/list?limit=6", true);
+xmlhttp.open("GET", "https://picsum.photos/v2/list?limit=6&page=4", true);
 xmlhttp.send();
 
 function compare(a, b) {
