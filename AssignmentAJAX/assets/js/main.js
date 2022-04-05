@@ -50,7 +50,7 @@ function addImages() {
     imagesDiv.innerHTML = "";
     for (imageItem of images) {
         imagesDiv.innerHTML += '<div>' +
-            '                <img src="' + imageItem.images.downsized_medium.url + '">' +
+            '                <img src="' + imageItem.images.downsized_medium.url + '" alt="' + imageItem.title + '">' +
             '                <div class="info">' +
             '                    <span>' +
             '                        Title: ' + imageItem.title + ', Author: ' + imageItem.username +
