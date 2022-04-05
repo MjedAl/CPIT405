@@ -7,31 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Assignment4/assets/css/styles.css">
     <meta name="referrer" content="no-referrer">
-    <title>Artly</title>
+    <title>AJAX</title>
 </head>
 
 <body>
     <div class="header">
-        <h1>Artly</h1>
+        <h1>In-class activity</h1>
     </div>
     <div class="content">
-        <!-- Navbar/Options bar -->
         <div class="bar">
             <div class="navbar">
                 <div>
-                    <a class="active" href="./index.html">
-                        Home
-                    </a>
-                </div>
-                <div>
-                    <a href="./upload.html">
-                        Upload image
-                    </a>
-                </div>
-                <div>
-                    <a href="./search.html">
-                        Search for image
-                    </a>
+                    <div>
+                        <label for="search">Search for:</label>
+                        <input placeholder='Search key' id='search' onkeyup="search(this)" type="text" required>
+                    </div>
                 </div>
             </div>
             <div class="sort">

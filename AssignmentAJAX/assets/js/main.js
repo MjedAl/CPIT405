@@ -4,20 +4,24 @@ var imagesDiv = document.getElementById("images")
 var xmlhttp = new XMLHttpRequest();
 const clientId = "4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql";
 
-xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-        if (xmlhttp.status == 200) {
-            images = JSON.parse(xmlhttp.responseText).data;
-            addImages();
+function search(e) {
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            if (xmlhttp.status == 200) {
+                images = JSON.parse(xmlhttp.responseText).data;
+                addImages();
+            }
+            else {
+                alert('something else other than 200 was returned');
+            }
         }
-        else {
-            alert('something else other than 200 was returned');
-        }
-    }
-};
-xmlhttp.open("GET", "https://api.giphy.com/v1/gifs/search?api_key=4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql&q=cats&limit=25&offset=0&rating=g&lang=en", true);
-xmlhttp.setRequestHeader('Authorization', 'Client-ID ' + clientId);
-xmlhttp.send();
+    };
+    xmlhttp.open("GET", "https://api.giphy.com/v1/gifs/search?api_key=4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql&q=" + e.value + "&limit=25&offset=0&rating=g&lang=en", true);
+    xmlhttp.setRequestHeader('Authorization', 'Client-ID ' + clientId);
+    xmlhttp.send();
+}
+
+
 
 function compare(a, b) {
     var sortBy = document.getElementById('sortBySelect').selectedOptions[0].value;
