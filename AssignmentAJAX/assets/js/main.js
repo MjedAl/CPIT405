@@ -5,7 +5,7 @@ var xmlhttp = new XMLHttpRequest();
 const clientId = "4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql";
 
 function search(e) {
-    if (!e) {
+    if (!e.value || e.value.length == 0 || !e.value.trim()) {
         return;
     }
     var API_LINK = "https://api.giphy.com/v1/gifs/search";
@@ -21,7 +21,7 @@ function search(e) {
             }
         }
     };
-    xmlhttp.open("GET", API_LINK + "?" + params + "&q=" + e.value + "", true);
+    xmlhttp.open("GET", API_LINK + "?" + params + "&q=" + encodeURIComponent(e.value) + "", true);
     xmlhttp.setRequestHeader('Authorization', 'Client-ID ' + clientId);
     xmlhttp.send();
 }
@@ -48,12 +48,13 @@ function sortImages() {
 
 function addImages() {
     imagesDiv.innerHTML = "";
+
     for (imageItem of images) {
         imagesDiv.innerHTML += '<div>' +
             '                <img src="' + imageItem.images.downsized_medium.url + '" alt="' + imageItem.title + '">' +
             '                <div class="info">' +
             '                    <span>' +
-            '                        Title: ' + imageItem.title + ', Author: ' + imageItem.username +
+            '                        Title: ' + imageItem.title + '' + (imageItem.username ? ', Author: ' + imageItem.username : '') +
             '                    </span>' +
             '                </div>' +
             '            </div>';
