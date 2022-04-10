@@ -2,7 +2,6 @@
 let images = [];
 var imagesDiv = document.getElementById("images")
 var xmlhttp = new XMLHttpRequest();
-const clientId = "4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql";
 
 function search(e) {
     if (!e.value || e.value.length == 0 || !e.value.trim()) {
@@ -22,7 +21,6 @@ function search(e) {
         }
     };
     xmlhttp.open("GET", API_LINK + "?" + params + "&q=" + encodeURIComponent(e.value) + "", true);
-    xmlhttp.setRequestHeader('Authorization', 'Client-ID ' + clientId);
     xmlhttp.send();
 }
 
