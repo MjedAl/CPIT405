@@ -67,10 +67,10 @@ function addImages() {
     } else {
         for (imageItem of images) {
             imagesDiv.innerHTML += '<div>' +
-                '                <img src="' + imageItem.images.downsized_medium.url + '" alt="' + imageItem.title + '">' +
+                '                <img src="' + imageItem.images.downsized_medium.url + '"' + (imageItem.title ? 'alt="' + imageItem.title + '"' : '') + '>' +
                 '                <div class="info">' +
                 '                    <span>' +
-                '                        Title: ' + imageItem.title + '' + (imageItem.username ? ', Author: ' + imageItem.username : '') +
+                '                        ' + (imageItem.title ? imageItem.title : '') + '' + (imageItem.username ? ' By @' + imageItem.username : '') +
                 '                    </span>' +
                 '                </div>' +
                 '            </div>';
