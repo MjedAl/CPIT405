@@ -115,7 +115,7 @@ form {
     color: white;
 }
 
-.form-search input {
+.form-search input, .form-search button {
     padding: 5px;
 }
 

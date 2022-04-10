@@ -2,9 +2,14 @@
 let images = [];
 var imagesDiv = document.getElementById("images")
 var xmlhttp = new XMLHttpRequest();
-
-function search(e) {
-    if (!e.value || e.value.length == 0 || !e.value.trim()) {
+var searchWord = document.getElementById("search");
+searchWord.addEventListener("keyup", function(event) {
+    if (event.key === 'Enter') {
+        search();
+    }
+  });
+function search() {
+    if (!searchWord.value || searchWord.value.length == 0 || !searchWord.value.trim()) {
         return;
     }
     var API_LINK = "https://api.giphy.com/v1/gifs/search";
@@ -20,9 +25,10 @@ function search(e) {
             }
         }
     };
-    xmlhttp.open("GET", API_LINK + "?" + params + "&q=" + encodeURIComponent(e.value) + "", true);
+    xmlhttp.open("GET", API_LINK + "?" + params + "&q=" + encodeURIComponent(searchWord.value) + "", true);
     xmlhttp.send();
 }
+
 
 
 
