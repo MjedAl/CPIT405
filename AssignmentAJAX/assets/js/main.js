@@ -15,27 +15,31 @@ function search() {
     }
     loader.style.display = "block";
     imagesDiv.style.display = "none";
-    var API_LINK = "https://api.giphy.com/v1/gifs/search";
-    var params = "api_key=4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql&limit=9&rating=g&lang=en";
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-            if (xmlhttp.status == 200) {
-                images = JSON.parse(xmlhttp.responseText).data;
-                addImages();
-            }
-            else {
-                alert('something else other than 200 was returned');
-            }
-            loader.style.display = "none";
-            imagesDiv.style.display = "block";
-        }
-    };
-    xmlhttp.open("GET", API_LINK + "?" + params + "&q=" + encodeURIComponent(searchWord.value) + "", true);
-    xmlhttp.send();
+    fetchImagesFromAPI().then((value) => {
+        images = value.data;
+        addImages();
+        loader.style.display = "none";
+        imagesDiv.style.display = "block";
+    }).catch((e) => {
+        loader.style.display = "none";
+        alert(e);
+    })
+
 }
 
-
-
+async function fetchImagesFromAPI() {
+    var API_LINK = "https://api.giphy.com/v1/gifs/search";
+    var params = "api_key=4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql&limit=18&rating=g&lang=en";
+    var requestOptions = {
+        method: 'GET'
+    }
+    const response = await fetch(API_LINK + "?" + params + "&q=" + encodeURIComponent(searchWord.value), requestOptions)
+    if (response.status == 200) {
+        return await response.json();
+    } else {
+        throw 'Some error happened :(';
+    }
+}
 
 function compare(a, b) {
     var sortBy = document.getElementById('sortBySelect').selectedOptions[0].value;
