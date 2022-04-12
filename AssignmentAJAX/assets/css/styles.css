@@ -115,7 +115,8 @@ form {
     color: white;
 }
 
-.form-search input, .form-search button {
+.form-search input,
+.form-search button {
     padding: 5px;
 }
 
@@ -143,4 +144,49 @@ form {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.blocks {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+}
+
+.blocks>div {
+    box-shadow: 1px 0 20px #fff;
+}
+
+.blocks div {
+    padding: 15px;
+}
+
+.blocks p {
+    padding: 15px;
+    color: white;
+}
+
+.blocks>div:hover {
+    transform: scale(1.09);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.external .github {
+    float: right;
+}
+
+.external h1 {
+    display: inline;
+}
+
+.external::after {
+    content: " ↗";
+    font-weight: bold;
 }
