@@ -156,6 +156,7 @@ form {
 
 .blocks>div {
     box-shadow: 1px 0 20px #fff;
+    position: relative;
 }
 
 .blocks div {
@@ -178,8 +179,11 @@ a {
     color: white;
 }
 
-.external .github {
-    float: right;
+.github {
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    position: absolute;
 }
 
 .external h1 {
