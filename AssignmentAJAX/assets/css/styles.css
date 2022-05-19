@@ -154,6 +154,21 @@ form {
     gap: 20px;
 }
 
+@media (max-width: 576px) {
+    .blocks {
+        grid-template-columns: repeat(1, 1fr);
+    } 
+    .images>div {
+        position: relative;
+        display: inline-block;
+        width: 80%;
+        margin-bottom: 5px;
+    }
+    .sort {
+        padding-left: 15px;
+    }
+}
+
 .blocks>div {
     box-shadow: 1px 0 20px #fff;
     position: relative;

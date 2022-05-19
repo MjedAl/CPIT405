@@ -194,3 +194,19 @@ a {
     content: " ↗";
     font-weight: bold;
 }
+@media (max-width: 576px) {
+    .blocks {
+        grid-template-columns: repeat(1, 1fr);
+    } 
+    .images>div {
+        position: relative;
+        display: inline-block;
+        width: 80%;
+        margin-bottom: 5px;
+    }
+    .sort {
+        margin-top: 5px;
+        float: none;
+        padding-left: 15px;
+    }
+}
