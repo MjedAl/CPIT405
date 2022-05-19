@@ -1,1 +1,3 @@
 /temp/*
+/capstone/.env
+/capstone-heroku-repo

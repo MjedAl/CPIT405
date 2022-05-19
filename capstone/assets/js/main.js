@@ -15,7 +15,7 @@ function search() {
     loader.style.display = "block";
     imagesDiv.style.display = "none";
     fetchImagesFromAPI().then((value) => {
-        images = value.data;
+        images = value;
         addImages();
         loader.style.display = "none";
         imagesDiv.style.display = "block";
@@ -27,12 +27,11 @@ function search() {
 }
 
 async function fetchImagesFromAPI() {
-    var API_LINK = "https://api.giphy.com/v1/gifs/search";
-    var params = "api_key=4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql&limit=18&rating=g&lang=en";
+    var API_LINK = "./php/get_images.php";
     var requestOptions = {
         method: 'GET'
     }
-    const response = await fetch(API_LINK + "?" + params + "&q=" + encodeURIComponent(searchWord.value), requestOptions)
+    const response = await fetch(API_LINK + "?" + "&q=" + encodeURIComponent(searchWord.value), requestOptions)
     if (response.status == 200) {
         return await response.json();
     } else {
@@ -40,13 +39,15 @@ async function fetchImagesFromAPI() {
     }
 }
 
+
+
 function compare(a, b) {
     var sortBy = document.getElementById('sortBySelect').selectedOptions[0].value;
     if (a[sortBy] < b[sortBy]) {
-        return -1;
+        return 1;
     }
     else if (a[sortBy] > b[sortBy]) {
-        return 1;
+        return -1;
     }
     else {
         return 0;
@@ -60,7 +61,6 @@ function sortImages() {
 
 function addImages() {
     imagesDiv.innerHTML = "";
-
     if (images.length == 0) {
         imagesDiv.innerHTML += '<div>' +
             '                    <h1>' +
@@ -70,16 +70,29 @@ function addImages() {
     } else {
         for (imageItem of images) {
             imagesDiv.innerHTML += '<div>' +
-                '                <img src="' + imageItem.images.downsized_medium.url + '"' + (imageItem.title ? 'alt="' + imageItem.title + '"' : '') + '>' +
+                '                <img src="' + imageItem.url + '"' + (imageItem.title ? 'alt="' + imageItem.title + '"' : '') + '>' +
                 '                <div class="info">' +
                 '                    <span>' +
-                '                        ' + (imageItem.title ? imageItem.title : '') + '' + (imageItem.username ? ' By @' + imageItem.username : '') +
+                '                        Views: ' + imageItem.views + '<button class="like-btn" id='+imageItem.id+'>'+imageItem.likes+' Likes</button><br>' + (imageItem.title ? imageItem.title : '') + '' + (imageItem.username ? ' By @' + imageItem.username : '') +
                 '                    </span>' +
                 '                </div>' +
                 '            </div>';
 
         }
-    }
 
-
+    document.querySelectorAll('.like-btn').forEach(button => {
+        button.onclick = function (e) {
+            var API_LINK = "./php/update_image.php";
+            var requestOptions = {
+                method: 'GET'
+            }
+            fetch(API_LINK + "?" + "id=" + e.target.id +"&like=true", requestOptions).then((value) => {
+                e.target.innerHTML =(eval(e.target.innerHTML.split(" ")[0]) + 1) +  " Likes";
+            }).catch((e) => {
+                alert('NO WHAT HAPPEND!');
+            });
+        }
+    });
 }
+}
+
