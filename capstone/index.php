@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/styles.css?ver=0.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css?ver=0.3">
     <meta name="referrer" content="no-referrer">
     <title>Artly</title>
 </head>
@@ -40,7 +41,7 @@
             <!-- Will be populated from Js -->
         </div>
     </div>
-    <script src="./assets/js/main.js?v=0.1"></script>
+    <script src="./assets/js/main.js?v=0.2"></script>
 </body>
 
 </html>

@@ -74,7 +74,7 @@ h1 {
     display: flex;
 }
 
-.info>span {
+.info>div {
     margin: auto;
     color: white;
 }
@@ -209,4 +209,17 @@ a {
         float: none;
         padding-left: 15px;
     }
+}
+
+.fa-thumbs-up {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.fa-thumbs-up:hover {
+    cursor: pointer;
+}
+
+.fa-eye{
+    margin-right: 5px;
 }
