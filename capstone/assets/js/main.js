@@ -118,7 +118,12 @@ function addImages() {
                         e.target.classList.add("fa-regular");
                         removeIDFromCookies(e.target.id);
                     }
-                    // TODO: Update the likes of that image in the array. so sorting can works with the new like count.
+                    // Update the likes of that image in the array. so sorting can works with the new like count.
+                    for (image of images) {
+                        if (image.id == e.target.id){
+                            image.likes = parseInt(likesCount.innerHTML);
+                        }
+                    }
                 }).catch((e) => {
                     alert('NOOOOO WHAT HAPPEND!');
                 });

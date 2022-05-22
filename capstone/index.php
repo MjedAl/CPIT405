@@ -41,7 +41,7 @@
             <!-- Will be populated from Js -->
         </div>
     </div>
-    <script src="./assets/js/main.js?v=0.2"></script>
+    <script src="./assets/js/main.js?v=0.3"></script>
 </body>
 
 </html>
