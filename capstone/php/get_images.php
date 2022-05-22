@@ -11,7 +11,7 @@ function get_images($keyword)
 {
     // fetch images
     $curl = curl_init();
-    $url = "https://api.giphy.com/v1/gifs/search?api_key=4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql&limit=18&rating=g&lang=en&q=".$keyword;
+    $url = "https://api.giphy.com/v1/gifs/search?api_key=4YZsPlWaTnZtgrU9lXg02VsWeYDpAsql&limit=18&rating=g&lang=en&q=".urlencode($keyword);
 
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
