@@ -23,6 +23,16 @@
                     <input placeholder='Search key' id="search" type="text" required>
                     <button onclick="search()">Search</button>
                 </div>
+                <div>
+                    <a href="./top-likes.php">
+                        Top likes
+                    </a>
+                </div>
+                <div>
+                    <a href="./top-views.php">
+                        Top views
+                    </a>
+                </div>
             </div>
             <div class="sort">
                 <span>Sort by:</span>
